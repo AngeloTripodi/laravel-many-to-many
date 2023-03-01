@@ -14,6 +14,11 @@
             <div class="card-body bg-black text-light">
                 <h2 class="card-author">{{ $project->author }}</h2>
                 <h5 class="card-title">{{ $project->title }}</h5>
+                <div>
+                    @foreach ($project->technologies as $technology)
+                        #{{ $technology->name }}
+                    @endforeach
+                </div>
                 @if (str_starts_with($project->image, 'http'))
                     <img class=" img-fluid" src="{{ $project->image }}" alt="{{ $project->title }}">
                 @else
