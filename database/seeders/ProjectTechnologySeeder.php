@@ -23,8 +23,8 @@ class ProjectTechnologySeeder extends Seeder
         $technologyIds = Technology::all()->pluck('id');
 
         foreach ($projects as $project) {
-
-            $project->technologies()->attach($faker->randomElements($technologyIds, 1));
+            $elements = $faker->randomElements($technologyIds, 3);
+            $project->technologies()->sync($elements);
         }
     }
 }
